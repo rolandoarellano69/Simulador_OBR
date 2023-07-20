@@ -10,8 +10,8 @@ const Footer = () => {
           <div class="mb-6 md:mb-0">
             <a href="https://residencialaureo.com/inicio//" class=" flex  gap-2 items-center">
               {/* <img src="/images/LOGO AUREO -01.png" class="h-8 mr-3" alt="FlowBite Logo" /> */}
-              <img src="src/images/LOGO_AUREO_BLANCO.png" alt="" className='h-[60px] w-[163px] mb-4 ' />
-              <img src="src/images/peek-removebg-preview.png" alt="" className='h-[86px] w-[154px] mb-4' />
+              <img src="src/assets/images/LOGO_AUREO_BLANCO.png" alt="" className='h-[60px] w-[163px] mb-4 ' />
+              <img src="src/assets/images/peek-removebg-preview.png" alt="" className='h-[86px] w-[154px] mb-4' />
             </a>
             <span class="self-center text-sm   text-[#898783]  dark:text-white">Aureo Residencial es un desarrollo <br /> inmobiliario de Grupo OBR</span>
             <div className='flex relative '>
