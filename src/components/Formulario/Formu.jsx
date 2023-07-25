@@ -1,20 +1,39 @@
-import React from 'react'
+import React,{ useState} from 'react'
 import Bottums
   from '../Botones/Bottums';
 
 const Formu = () => {
+  const [values, setValues] = useState({
+
+    value1: 0,
+    value2: 0,
+    resultado: 0,
+  });
+
+  const handleInputChange = (ev) => {
+    const {name, value} = ev.target;
+    setValues({...values, [name]: parseFloat(value),
+    });
+  };
+  const calcularSuma = () => {
+    const suma = values.value1 + values.value2;
+    setValues({
+    resultado: isNaN(suma) ? 0 : suma,
+  });// Maneja el caso en que los valores no sean números válidos
+  };
+
   return (
-    <div className='px-4 py-6 mt-6 rounded-lg w-full text-black'>
+    <div className=' lg:px-4 py-6 mt-6 rounded-lg w-full text-black'>
       <Bottums />
       <form className='bg-[#F9F6F1]  text-black rounded-lg p-4  w-full '>
         <div className='mb-4'>
           <p className='mb-4 font-semibold'>¿Cuánto cuesta la casa que quieres?</p>
-          <input type="text" className="py-3 pl-4 pr-4 w-full outline-none  bg-transparent rounded-lg  focus:border focus:border-[#A27D40] " placeholder="Ingresa cantidad "></input>
+          <input type="number" name='value1' value={values.value1} onChange={handleInputChange} className="py-3 pl-4 pr-4 w-full outline-none  bg-transparent rounded-lg  focus:border focus:border-[#A27D40] " placeholder="Ingresa cantidad "></input>
         </div>
 
         <div className='mb-4'>
           <p className='mb-4  font-semibold'>¿En qué estado te gustaría adquirir la casa?</p>
-          <input type="text" className="py-3 pl-4 pr-4 w-full outline-none  bg-transparent rounded-lg  focus:border focus:border-[#A27D40] " placeholder="Ingresa cantidad "></input>
+          <input type="number" name='value2' value={values.value2} onChange={handleInputChange} className="py-3 pl-4 pr-4 w-full outline-none  bg-transparent rounded-lg  focus:border focus:border-[#A27D40] " placeholder="Ingresa cantidad "></input>
         </div>
 
         <div className='mb-4'>
@@ -44,9 +63,9 @@ const Formu = () => {
           {/* <p className='text-center mt-4'>ORB GROUP CONSTRUCTORA</p> */}
 
           <div className='mt-16'>
-          <button type="submit" class="flex w-full justify-center rounded-md bg-[#B78D4E] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#CCAC5E]">Calcular</button>
+          <button onClick={calcularSuma} class="flex w-full justify-center rounded-md bg-[#B78D4E] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#CCAC5E]">Calcular</button>
           </div>
-
+          <p>El resultado de la suma es: {values.resultado}</p>
         </div>
       </form>
 
